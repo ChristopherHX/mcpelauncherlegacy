@@ -3,9 +3,6 @@
 #include <dlfcn.h>
 #include <log.h>
 #include "client_app_platform.h"
-#ifdef __i386__
-#include "texel_aa_patch.h"
-#endif
 
 extern "C" void mod_init() {
     auto mc = dlopen("libminecraftpe.so", RTLD_LAZY);
