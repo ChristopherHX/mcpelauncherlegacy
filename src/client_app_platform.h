@@ -12,8 +12,8 @@ private:
 public:
     static void initVtable(void* lib);
 
-    bool supportsFilePicking() { return true; }
-
-    bool supportsMSAA() const { return true; }
-
+    long long getUsedMemory();
+    long long getFreeMemory();
+    long long getTotalPhysicalMemory();
+    long long getMemoryLimit();
 };
