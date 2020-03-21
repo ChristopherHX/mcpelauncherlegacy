@@ -19,6 +19,7 @@ void ClientAppPlatform::initVtable(void* lib) {
     vtr.replace("_ZN19AppPlatform_android13getFreeMemoryEv", &ClientAppPlatform::getFreeMemory); // legacy
     vtr.replace("_ZNK19AppPlatform_android13getFreeMemoryEv", &ClientAppPlatform::getFreeMemory);
     vtr.replace("_ZN19AppPlatform_android13getUsedMemoryEv", &ClientAppPlatform::getUsedMemory);
+    vtr.replace("_ZN19AppPlatform_android18getAvailableMemoryEv", &ClientAppPlatform::getTotalPhysicalMemory);// legacy
     vtr.replace("_ZN19AppPlatform_android22getTotalPhysicalMemoryEv", &ClientAppPlatform::getTotalPhysicalMemory); // legacy
     vtr.replace("_ZNK19AppPlatform_android22getTotalPhysicalMemoryEv", &ClientAppPlatform::getTotalPhysicalMemory);
     vtr.replace("_ZN19AppPlatform_android14getMemoryLimitEv", &ClientAppPlatform::getMemoryLimit); // legacy
@@ -26,17 +27,17 @@ void ClientAppPlatform::initVtable(void* lib) {
 }
 
 long long ClientAppPlatform::getUsedMemory() {
-    return 512 * 1024 * 1024;
+    return 255 * 1024 * 1024;
 }
 
 long long ClientAppPlatform::getFreeMemory() {
-    return 512 * 1024 * 1024;
+    return 128 * 1024 * 1024;
 }
 
 long long ClientAppPlatform::getTotalPhysicalMemory() {
-    return 1024 * 1024 * 1024;
+    return 384 * 1024 * 1024;
 }
 
 long long ClientAppPlatform::getMemoryLimit() {
-    return 1024 * 1024 * 1024;
+    return 384 * 1024 * 1024;
 }
